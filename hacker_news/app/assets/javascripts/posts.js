@@ -12,19 +12,17 @@ HackerNews.render_post = function(post_data) {
 
 $(document).ready(function(){
 	$('.delete-post').click(function(e){
+		var matcher, post_id_string, post_id;
 		e.preventDefault();
-		debugger;
-		var post_id = $();
+		matcher = /\d+/;
+		post_id_string = this.parentElement.id;
+		post_id = matcher.exec(post_id_string)[0]; 
 		$.ajax({
-			url: '/post/' + post_id,
-			data: {post: {title: title, link: link, body: body}},
-			dataType: 'json',
-			type: 'POST',
-			success: function(data){
-				HackerNews.render_post(data);
-			}
+			url: '/posts/' + post_id,
+			dataType: 'script',
+			type: 'DELETE',
+			success: function(data){}
 		});
-
 		return false;
 	});
 
