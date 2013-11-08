@@ -7,6 +7,8 @@
 		<div class="comment" id="comment-<%= comment.id %>">
 			<%= comment.user.email %>
 			<%= comment.content %>
+			<%= button_to "Upvote", {controller: 'votes', action: "create", vote: {votable_id: comment.id, votable_type: "Comment", up: true }}, remote: true %>
+		<%= button_to "Downvote", {controller: 'votes', action: "create", vote: {votable_id: comment.id, votable_type: "Comment", up: false }}, remote: true %>
 			<%= button_to "Delete Comment", {controller: 'comments', action: "destroy", post_id: @post.id, id: comment.id },
                                 method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
 		</div>

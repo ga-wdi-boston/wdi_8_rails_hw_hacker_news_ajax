@@ -6,6 +6,7 @@ HackerNews.render_post = function(post_data) {
 			"<h3>" + post_data.title + "</h3>" +
 			"<div>" + post_data.link + "</div>" +
 			"<div>" + post_data.body + "</div>" + 
+			"<div>Votes: <span class=\"num-votes\">0</span></div>" +
 		"</div>"
 	);
 };

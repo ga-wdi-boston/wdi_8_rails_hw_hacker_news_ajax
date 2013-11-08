@@ -6,6 +6,9 @@
 		<h3><%= link_to post.title, post %></h3>
 		<div><%= post.link %></div>
 		<div><%= post.body %></div>
+		<div>Votes: <span class="num-votes"><%= post.total_votes %></span></div>
+		<%= button_to "Upvote", {controller: 'votes', action: "create", vote: {votable_id: post.id, votable_type: "Post", up: true }}, remote: true %>
+		<%= button_to "Downvote", {controller: 'votes', action: "create", vote: {votable_id: post.id, votable_type: "Post", up: false }}, remote: true %>
 		<button class="delete-post">X</button>
 	</div>
 <% end %>
