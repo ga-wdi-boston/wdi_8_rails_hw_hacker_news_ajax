@@ -1,9 +1,19 @@
 <h1>Hacker News</h1>
 
+<div id="all-posts">
 <% @posts.each do |post| %>
-	<div>
+	<div id="post-<%= post.id %>">
 		<h3><%= post.title %></h3>
 		<div><%= post.link %></div>
 		<div><%= post.body %></div>
+		<button class="delete-post">X</button>
 	</div>
 <% end %>
+</div>
+
+<form id="post-form">
+	Title:<input type="text" id="post-form-title" />
+	Link:<input type="text" id="post-form-link" />
+	Body:<input type="text" id="post-form-body" />
+	<button id="post-form-submit" >Create Post</button>
+</form>
