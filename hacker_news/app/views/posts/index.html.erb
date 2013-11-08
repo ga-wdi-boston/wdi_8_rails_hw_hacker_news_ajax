@@ -1,0 +1,9 @@
+<h1>Hacker News</h1>
+
+<% @posts.each do |post| %>
+	<div>
+		<h3><%= post.title %></h3>
+		<div><%= post.link %></div>
+		<div><%= post.body %></div>
+	</div>
+<% end %>
