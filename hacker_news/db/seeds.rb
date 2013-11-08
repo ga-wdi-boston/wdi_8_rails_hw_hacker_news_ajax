@@ -1,2 +1,6 @@
-Post.create(title: "Twitter goes public", body: "Left money on table", link: "http://twitter.com")
-Post.create(title: "Amazon announces low profit goals", body: "Investors mad for real", link: "http://amazon.com")
+user = User.create(email: "tibbon@gmail.com", password: "asdfasdf")
+p1 = Post.create(user: user, title: "Twitter goes public", body: "Left money on table", link: "http://twitter.com")
+p2 = Post.create(user: user, title: "Amazon announces low profit goals", body: "Investors mad for real", link: "http://amazon.com")
+p1.comments.create(content: "First post", user: user)
+p1.comments.create(content: "Second post", user: user)
+p1.comments.create(content: "Third post", user: user)

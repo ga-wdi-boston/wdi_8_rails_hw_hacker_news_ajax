@@ -1,0 +1,4 @@
+$('#comment_content').val('');
+$("#post-comments").append(
+	'<div class="comment" id="<%= @comment.id %>"><%= @comment.user.email %><%= @comment.content %></div>'
+);

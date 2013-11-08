@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:destroy]
+  before_action :set_post, only: [:destroy, :show]
 
   def index
   	@posts = Post.all
@@ -8,6 +8,10 @@ class PostsController < ApplicationController
   		format.html
   		format.json {render json: @posts}
   	end
+  end
+
+  def show
+    @comment = Comment.new
   end
 
   def create

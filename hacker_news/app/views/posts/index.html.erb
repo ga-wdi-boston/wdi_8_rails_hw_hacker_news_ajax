@@ -3,7 +3,7 @@
 <div id="all-posts">
 <% @posts.each do |post| %>
 	<div id="post-<%= post.id %>">
-		<h3><%= post.title %></h3>
+		<h3><%= link_to post.title, post %></h3>
 		<div><%= post.link %></div>
 		<div><%= post.body %></div>
 		<button class="delete-post">X</button>

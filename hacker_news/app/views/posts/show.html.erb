@@ -1,0 +1,21 @@
+<h1><%= @post.title %></h1>
+<div><%= @post.link %></div>
+<p><%= @post.body %></p>
+
+<div id="post-comments">
+	<% @post.comments.each do |comment| %>
+		<div class="comment" id="<%= comment.id %>">
+			<%= comment.user.email %>
+			<%= comment.content %>
+		</div>
+	<% end %>
+</div>
+
+<% if user_signed_in? %>
+	<%= form_for [@post, @comment], remote: true do |f| %>
+		Comment: <%= f.text_field :content %>
+		<%= f.submit %>
+	<% end %>
+<% else %>
+	<p>Login to leave comments</p>
+<% end %>
