@@ -4,9 +4,11 @@
 
 <div id="post-comments">
 	<% @post.comments.each do |comment| %>
-		<div class="comment" id="<%= comment.id %>">
+		<div class="comment" id="comment-<%= comment.id %>">
 			<%= comment.user.email %>
 			<%= comment.content %>
+			<%= button_to "Delete Comment", {controller: 'comments', action: "destroy", post_id: @post.id, id: comment.id },
+                                method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
 		</div>
 	<% end %>
 </div>

@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
+		@temp_comment = @comment
 		@comment.delete
 	end
 
